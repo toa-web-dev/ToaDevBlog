@@ -1,99 +1,32 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+<!-- Gatsby는 JAM
+Javscript API M  -->
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Gatsby Link API의 성능상 이점
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+Gatsby는 Prefetch를 통해 페이지에서 사용할 리소스의 로딩 속도를 높인다고 합니다.
 
-## 🚀 Quick start
+그럼 어떻게 페이지를 찾고 Prefetch를 진행할까요?
 
-1.  **Create a Gatsby site.**
+이를 위한 것이 바로 Gatsby Link API에서 제공하는 Link 컴포넌트입니다.
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+페이지가 로드되면 Gatsby는 리소스 로드 속도를 높이기 위해 현재 페이지에서 사용되는 모든 링크를 찾은 후, 각 링크의 페이지를 미리 로드하기 시작합니다.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+우리가 생성한 프로젝트에서 확인해보면 메인 페이지의 로딩이 완료되면, Gatsby는 /info 링크를 찾고, 이 페이지를 미리 로드하는 것이죠.
 
-1.  **Start developing.**
+이를 통해 Gatsby는 더 높은 사용자 경험을 제공할 수 있는 것입니다.
 
-    Navigate into your new site’s directory and start it up.
+---
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+그러다 EmotionJS 라이브러리가 등장했는데 해당 라이브러리는 styled-components의 기능을 거의 동일하게 사용할 수 있었을 뿐더러, 추가적으로 라이브러리를 설치해 손쉽게 기능 확장이 가능합니다.
 
-1.  **Open the source code and start editing!**
+하지만 제일 중요한 점은 이런 기능을 그대로 구현한 라이브러리의 번들 용량이 다른 라이브러리에 비해 압도적으로 작다는 것입니다.
 
-    Your site is now running at `http://localhost:8000`!
+따라서 저희는 이번 강의에서 EmotionJS를 통해 스타일링을 진행하겠습니다.
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
+---
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
-
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-1.  **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On Netlify](https://netlify.com)
-
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+글로벌 스타일 지정 방법
+Tagged Template Literal 방식을 통한 CSS 정의 및 적용 방법
+Tagged Template Literal 방식을 통한 Styled Component 생성 방법
+객체를 통한 Styled Component 생성 방법
+Styled Component에서 Props를 받아 처리하는 방법
