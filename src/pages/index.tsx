@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobalStyle'
-import Footer from 'components/Common/Footer'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import Introduction from 'components/Main/Introduction'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
-import { PostListItemType } from 'types/PostItem.types'
+import { PostType } from 'types/PostItem.types'
 import queryString, { ParsedQuery } from 'query-string'
+import Template from 'components/Common/Template'
+
 
 type IndexPageProps = {
   location: {
@@ -16,7 +16,7 @@ type IndexPageProps = {
   }
   data: {
     allMarkdownRemark: {
-      edges: PostListItemType[]
+      edges: PostType[]
     }
     file: {
       childImageSharp: {
@@ -57,7 +57,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
             node: {
               frontmatter: { categories },
             },
-          }: PostListItemType,
+          }: PostType,
         ) => {
           categories.forEach(category => {
             if (list[category] === undefined) list[category] = 1
@@ -74,16 +74,14 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   )
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Template>
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
-      <Footer />
-    </Container>
+    </Template>
   )
 }
 
@@ -97,6 +95,9 @@ export const getPostList = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
