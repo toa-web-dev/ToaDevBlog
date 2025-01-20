@@ -4,7 +4,11 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import PostHeadInfo, { PostHeadInfoProps } from 'components/Post/PostHeadInfo'
 
 type PostHeadProps = PostHeadInfoProps & {
-  thumbnail: IGatsbyImageData
+  thumbnail: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData
+    }
+  }
 }
 
 type GatsbyImgProps = {
