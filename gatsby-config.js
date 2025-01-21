@@ -8,6 +8,12 @@ module.exports = {
     siteUrl: SITE_URL, // 배포 후 변경 예정
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-typescript',
