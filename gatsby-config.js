@@ -1,11 +1,14 @@
+const SITE_URL = `https://google.com`
+
 module.exports = {
   siteMetadata: {
     title: `주니어 개발자의 개발 블로그`,
     description: `주니어 개발자로서의 저를 표현한 블로그입니다.`,
     author: `Hyun`,
-    siteUrl: 'https://google.com', // 배포 후 변경 예정
+    siteUrl: SITE_URL, // 배포 후 변경 예정
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -67,6 +70,13 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: SITE_URL,
+        stripQueryString: true,
       },
     },
   ],
