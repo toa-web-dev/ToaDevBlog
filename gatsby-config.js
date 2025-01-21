@@ -1,4 +1,4 @@
-const SITE_URL = `https://google.com`
+const SITE_URL = `https://toa-dev-blog.vercel.app/`
 
 module.exports = {
   siteMetadata: {
