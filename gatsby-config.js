@@ -8,13 +8,18 @@ module.exports = {
     siteUrl: SITE_URL, // 배포 후 변경 예정
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -22,8 +27,6 @@ module.exports = {
         allExtensions: true,
       },
     },
-    `gatsby-plugin-emotion`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,8 +41,6 @@ module.exports = {
         path: `${__dirname}/static`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
